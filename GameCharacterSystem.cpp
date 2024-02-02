@@ -1,17 +1,22 @@
 #include "GameCharacters.h"
 
+/*
+* GameCharacterSystem C Includes
+*/
 #include <intrin.h>
 #include <cstdint>
 #include <malloc.h>
 
-//Position can contain the X,Y,Z and Face Direction Angle the Entity/Character is Facing.
-__m128* Position = NULL;
-
-//Health can be a value between 0 and 100.
-uint8_t* Health = NULL;
 
 /*
-* Called when we first Initialize a world with Character Systems.
+* GameCharacterSytstem Variables
+*/
+__m128* Position = NULL;  //Position can contain the X,Y,Z and Face Direction Angle the Entity/Character is Facing.
+ uint8_t* Health = NULL;  //Health can be a value between 0 and 100.
+
+
+/*
+* GameCharacterSystem Functions
 */
 void GameCharacterSystem::InitializeCharacterSystem(const int intializer_size, const int alignment)
 {
@@ -21,9 +26,6 @@ void GameCharacterSystem::InitializeCharacterSystem(const int intializer_size, c
 	Health = static_cast<uint8_t*>(_aligned_malloc(sizeof(Health) * size, alignment));
 }
 
-/*
-* Only to be called when Game Shuts Down or we Return to something like Main Menu where no characters are needed.
-*/
 void GameCharacterSystem::ShutdownCharacterSystem()
 {
 	_aligned_free(Health);
