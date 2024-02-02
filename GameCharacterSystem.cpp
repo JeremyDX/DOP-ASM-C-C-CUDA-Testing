@@ -4,7 +4,10 @@
 #include <cstdint>
 #include <malloc.h>
 
+//Position can contain the X,Y,Z and Face Direction Angle the Entity/Character is Facing.
 __m128* Position = NULL;
+
+//Health can be a value between 0 and 100.
 uint8_t* Health = NULL;
 
 /*
